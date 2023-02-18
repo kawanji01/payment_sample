@@ -1,0 +1,24 @@
+<% if invoice&.status_transitions&.paid_at&.present? %>
+  <div class="col-xs-12 col-6 whole-link my-3">
+
+    <div class="card p-3">
+      <div class="card-body text-center">
+        <h5 class="card-title"><%= Time.at(invoice.status_transitions.paid_at).strftime("%Y/%m/%d") %></h5>
+        <p class="text-secondary"><%= invoice.total %>円</p>
+        <p class="text-secondary"><%= invoice.lines.data[0].description %></p>
+        <p class="text-secondary"><%= Time.at(invoice.lines.data[0].period.start).strftime("%Y/%m/%d") %>
+          〜 <%= Time.at(invoice.lines.data[0].period.end).strftime("%Y/%m/%d") %></p>
+      </div>
+
+      <%= link_to 'PDFで取得する', invoice.hosted_invoice_url, target: "_blank", class: 'btn btn-sm btn-border-gray d-block w-100' %>
+
+      <!--
+      <#% if current_user.admin? %>
+        <#%= link_to refund_invoice_path(i), method: :post, data: {confirm: "返金します。よろしいですか？"} do %>
+          <div class="btn btn btn-border-gray">返金する</div>
+        <#% end %>
+      <#% end %>
+      -->
+    </div>
+  </div>
+<% end %>

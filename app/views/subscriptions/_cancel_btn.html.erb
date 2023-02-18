@@ -1,0 +1,37 @@
+<% if stripe_subscription.present? %>
+  <% status = stripe_subscription['status'] %>
+  <% if status == 'canceled' %>
+    <p class="small text-secondary">状態： 解約済</p>
+  <% else %>
+
+    <!-- Button trigger modal -->
+    <a class="text-danger small" data-toggle="modal" data-target="#subscriptionCancellation">
+      解約する
+    </a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="subscriptionCancellation" tabindex="-1" role="dialog" aria-labelledby="subscriptionCancellationLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title font-weight-bold" id="subscriptionCancellationLabel">確認画面</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= subscription.plan.nickname %>を解約いたします。よろしいですか？
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary font-weight-bold" data-dismiss="modal">キャンセル</button>
+            <%= form_with model: subscription, url: cancel_subscription_path(subscription), local: true do |f| %>
+              <%= f.submit '解約する', class: 'btn btn-danger main-loading-show-btn' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+<% end %>

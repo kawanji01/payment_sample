@@ -1,0 +1,13 @@
+en:
+  layouts:
+    contact: 'Contact'
+    company: 'Company'
+    commercial_transaction_act: 'Specified Commercial Transaction Act'
+    term_of_service: 'Term of service'
+    privacy_policy: 'Privacy policy'
+    title: "Sample"
+    description: ""
+    keywords: "Sample, keyword"
+    download_caption: ''
+    transcribe_video: ''
+

@@ -1,0 +1,87 @@
+<% set_meta_tags noindex: true %>
+
+
+<div class="container bg-white pt-5 pb-5 my-5">
+  <div class="px-3">
+    <div class="row" style="min-height: 840px;">
+
+      <%= render "users/aside" %>
+
+      <div class="col-md-8">
+
+        <!--
+        <h1 class="text-center font-weight-bold">
+          <i class="fas fa-graduation-cap mr-2"></i>学習記録
+        </h1>
+
+        <h3 class="text-secondary font-weight-bold my-5 text-center">まだ学習記録がありません。</h3>
+        <div class="d-block py-3"></div>
+        -->
+
+
+        <h1 class="text-center font-weight-bold mt-5">
+          ご契約プラン
+        </h1>
+
+        <% if @subscriptions.blank? %>
+          <div class="plans mt-5">
+            <div class="plan-table plan-free px-2 my-5">
+              <table>
+                <%= render 'plans/explanation_1' %>
+                <tr>
+                  <td>
+                    <%= link_to '契約する', checkout_subscriptions_path(plan_number: 1),
+                                class: 'btn btn-solid main-loading-show-btn w-100',
+                                data: { "turbolinks" => false } %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="plan-table plan-premium px-2 my-5">
+              <table>
+                <%= render "plans/explanation_2" %>
+                <tr>
+                  <td>
+                    <%= link_to '契約する', checkout_subscriptions_path(plan_number: 2),
+                                class: 'btn btn-solid main-loading-show-btn w-100',
+                                data: { "turbolinks" => false } %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="plan-table plan-premium px-2 my-5">
+              <table>
+                <%= render "plans/explanation_3" %>
+                <tr>
+                  <td>
+                    <%= link_to '契約する', checkout_subscriptions_path(plan_number: 3),
+                                class: 'btn btn-solid main-loading-show-btn w-100',
+                                data: { "turbolinks" => false } %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+        <% else %>
+
+          <% @subscriptions.each do |subscription| %>
+            <%= render 'subscriptions/item', subscription: subscription %>
+          <% end %>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+

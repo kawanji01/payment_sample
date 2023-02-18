@@ -1,0 +1,19 @@
+<% set_meta_tags noindex: true %>
+<!--
+使わなくなったプランも出来るだけ削除はしないでおくようにする。
+詳しくは、<a href="https://stripe.com/docs/billing/subscriptions/products-and-plans#managing-products-and-plans" target="_blank" rel="noopener">ドキュメント</a>を参照</p>
+-->
+
+<div class="container bg-white pt-5 pb-5 my-5 px-5">
+
+  <h1 class="text-center">Plan</h1>
+
+  <div class="row row-height">
+    <%= render partial: "plans/item", collection: @plans, as: 'plan' %>
+  </div>
+
+  <%= link_to new_plan_path, class: "btn btn-solid w-100 my-5" do %>
+    <i class="far fa-plus"></i>Add Plan
+  <% end %>
+
+</div>

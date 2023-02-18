@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Bing対策 参照：https://tek2tech.com/seo-for-multilingual-sites/ -->
+<html lang="<%= @locale.to_s %>">
+<head>
+  <%= render 'layouts/google' %>
+  <!-- http://vdeep.net/rubyonrails-meta-tags-seo -->
+  <%= display_meta_tags(default_meta_tags) %>
+  <%= yield :links %>
+  <%= render "layouts/rails_default" %>
+</head>
+
+<body>
+<!-- 一部ページでのturobolinksの無効化 / START  / 参考：　https://qiita.com/Jackson123/items/981d6362bcf9d2a136c3　-->
+<div
+  <% if content_for?(:body_attributes) %>
+  <%= yield(:body_attributes) %>
+  <% end %>
+  >
+
+
+  <%= render "layouts/header" %>
+
+
+  <div class="main" id="main">
+
+    <div class="feedback_message w-100 text-center">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
+
+  <!-- 特定のボタンを押した時に表示されるloading -->
+  <div class="loading is-hide" id="loading">
+    <div class="loading_icon"></div>
+  </div>
+
+
+  <%= render 'layouts/footer' %>
+
+</div>
+<!-- Turbolinksの一部ページでの無効化 / END-->
+</body>
+</html>

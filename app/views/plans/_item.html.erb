@@ -1,0 +1,38 @@
+<% stripe_plan = Stripe::Plan.retrieve(plan.stripe_price_id) rescue nil %>
+<div class="col-sm-6 my-3">
+
+  <div class="card">
+    <div class="card-header">
+      ID: <%= plan.id %> / ReferenceNumber: <%= plan.reference_number %>
+    </div>
+    <div class="card-body">
+      <% if stripe_plan.present? %>
+        <h5 class="card-title">nickname: <b><%= plan.nickname %></b></h5>
+        <p class="card-text">amount: <b><%= plan.amount %></b></p>
+        <p class="card-text">trial_period_days: <b><%= plan.trial_period_days %></b></p>
+        <p class="card-text">currency: <b><%= plan.currency %></b></p>
+        <p class="card-text">interval: <b><%= plan.interval %></b></p>
+        <p class="card-text">usage_type: <b><%= plan.usage_type %></b></p>
+        <p class="card-text">Subscribers: <%= plan.subscribers.count %></p>
+        <button class="btn btn-sm btn-border-gray w-100 text-center mb-3" type="button" data-toggle="collapse" data-target="#collapse-<%= plan.id %>" aria-expanded="false" aria-controls="collapseExample">
+          JSON
+        </button>
+        <div class="collapse py-4" id="collapse-<%= plan.id %>">
+          <p class="card-text"><%= stripe_plan.to_s %></p>
+        </div>
+      <% else %>
+        <h5 class="card-title">Invalid ID</h5>
+      <% end %>
+      <% if (unit = plan.unit) %>
+        <%= link_to "Unit: #{unit.amount}", edit_unit_path(unit), class: 'btn btn-success w-100' %>
+      <% else %>
+        <%= link_to 'Add Unit', new_unit_path(plan_id: plan.id), class: 'btn btn-success w-100' %>
+      <% end %>
+
+      <%= link_to 'Edit Plan', edit_plan_path(plan), class: 'btn btn-success w-100' %>
+
+
+
+    </div>
+  </div>
+</div>

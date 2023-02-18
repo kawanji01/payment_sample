@@ -1,0 +1,13 @@
+en:
+  shared:
+    company:
+      name: 'Sample'
+      address: ''
+      phone: '070-1545-5766'
+      email: 'Sample@gmail.com'
+    diff:
+      addition: 'Addition'
+      modification: 'Modification'
+      elimination: 'Elimination'
+  infiniteScroll:
+    all_loaded: 'All Loaded'

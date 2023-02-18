@@ -1,0 +1,6 @@
+ja:
+  application:
+    login_required: 'この機能を使うためには、ログインしてください。'
+    already_logged_in: 'すでにログインしています。'
+    forbid_not_premium_user: 'プレミアム会員限定の機能です。'
+    already_premium_user: 'すでにプレミアム会員です。'

@@ -1,0 +1,27 @@
+<% set_meta_tags noindex: true %>
+
+<div class="my-3">
+  <%= render 'layouts/breadcrumb', items_hash: @breadcrumb_hash %>
+
+  <div class="container bg-white pt-5 pb-5 my-5">
+    <div class="row justify-content-md-center">
+
+      <div class="col-md-6">
+
+        <h1 class="text-center font-weight-bold">領収書/請求書</h1>
+
+        <% if @invoices.blank? %>
+          <h3 class="text-center"><%= "領収書/請求書はありません。" %></h3>
+        <% else %>
+
+          <div class="row row-height">
+            <%= render partial: 'invoices/invoice', collection: @invoices, as: 'invoice' %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

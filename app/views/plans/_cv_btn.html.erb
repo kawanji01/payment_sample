@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <% if logged_in? %>
+      <%= link_to '契約する', checkout_subscriptions_path(plan_number: number),
+                  class: 'btn btn-solid main-loading-show-btn w-100',
+                  data: { "turbolinks" => false } %>
+    <% else %>
+      <a class="btn move-to-catalog-request w-100" href="#">詳細はこちら</a>
+    <% end %>
+  </td>
+</tr>

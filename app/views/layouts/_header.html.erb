@@ -1,0 +1,28 @@
+<header class="header">
+  <div class="container logo text-left pt-3 d-flex">
+
+    <%= link_to root_path do %>
+      <span class="pt-2 font-weight-bold">Sample</span>
+    <% end %>
+
+
+    <% if logged_in? %>
+      <%= link_to icon_for(current_user, size: 30), current_user, class: 'ml-auto' %>
+    <% else %>
+      <%= link_to new_user_path, class: 'ml-auto mr-2' do %>
+        <div class="btn btn-sm btn-light-green font-weight-bold">
+          会員登録
+        </div>
+      <% end %>
+
+      <%= link_to login_path do %>
+        <div class="btn btn-sm btn-light-green font-weight-bold">
+          ログイン
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</header>
+
+
+

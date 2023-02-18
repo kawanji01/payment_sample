@@ -1,0 +1,40 @@
+<div class="d-block mt-4"></div>
+<%= render 'layouts/breadcrumb_top', items_hash: @breadcrumb_hash %>
+
+<div class="container bg-white pt-5 pb-5 my-5">
+  <div class="row justify-content-md-center">
+
+    <div class="col-md-6">
+
+
+      <h1 class="text-center font-weight-bold mb-4"><%= title @title %></h1>
+
+      <p>
+        お支払い方法を変更したい場合や、お支払い用のカードを変更したい場合は、<%= link_to 'こちらのページ', edit_customer_url(@customer), class: 'text-success' %>
+        から行なってください。
+      </p>
+      <p>お支払い方法を削除されると領収書の確認などができなくなります。</p>
+      <p>復元などもできかねますので、あらかじめご理解ご了承くださいませ。</p>
+
+      <% if @customer.subscriptions.present? %>
+        <p>また現在、ご契約中のプランがございますので、もしお支払い方法を削除したい場合には、まずはご契約しているプランの解約を行ってください。</p>
+        <%= link_to ' 契約中のプランを解約する', payment_setting_user_path(current_user),
+                    class: 'btn btn btn-danger font-weight-bold d-block my-4 w-100' %>
+
+      <% else %>
+        <p>本当にお支払い方法を削除しますか？</p>
+        <%= link_to customer_path(@customer), method: :delete,
+                    class: "btn btn btn-danger d-block w-100 my-5 font-weight-bold",
+                    data: { confirm: '本当に支払い方法を削除してもよろしいですか?',
+                            cancel: 'キャンセル',
+                            commit: '削除する' }, title: '削除確認' do %>
+          支払い方法を消去する
+        <% end %>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+

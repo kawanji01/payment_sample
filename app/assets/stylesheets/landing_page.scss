@@ -1,0 +1,240 @@
+@import "./variables";
+
+#landing-page {
+  .background-black {
+    background-color: $brand-black;
+  }
+
+  .cta-btn {
+    background-color: $light-green;
+    border-color: $light-green;
+    color: white;
+
+    &:hover {
+      color: white;
+      background-color: darken($light-green, 20%);
+      border-color: darken($light-green, 20%);
+    }
+  }
+
+  .wrapper {
+    // col-xlに最小幅に合わせる ref: https://getbootstrap.jp/docs/4.3/layout/grid/#auto-layout-columns
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .one-column-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .top-heading {
+    font-size: 64px;;
+    @media(max-width: 544px) {
+      font-size: 40px;;
+    }
+  }
+
+  .app-badge {
+    max-height: 48px;
+  }
+
+}
+
+/* Stepper START ref: https://www.nowte.net/ui/ui-step/ */
+.progressbar {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.progressbar li {
+  position: relative;
+  list-style-type: none;
+  text-align: center;
+  text-transform: uppercase;
+  width: 33.333%;
+  color: #999999;
+  font-weight: bold;
+  counter-increment: steps;
+}
+.progressbar li:before {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 7px auto 20px auto;
+  content: '';
+  line-height: 26px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  content: counter(steps);
+}
+.progressbar li:after {
+  position: absolute;
+  z-index: -1;
+  top: 15px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  content: '';
+  background-color: #F5F5F5;
+}
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.active,
+.progressbar li.complete{
+  color: $brand-green;
+}
+.progressbar li.active:before,
+.progressbar li.complete:before {
+  background-color: $brand-green;
+  color: #FFF;
+}
+.progressbar li.active:after,
+.progressbar li.complete:after {
+  background-color: $brand-green;
+}
+
+
+/* Stepper END */
+
+
+
+/* 料金表 */
+.plans {
+  /* https://www.webcreatorbox.com/inspiration/price-table */
+  .flexbox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+
+  }
+
+  .explain-link {
+
+    color:  #009DFF;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: darken(#009DFF, 20%);
+    }
+  }
+
+
+  /*
+  TABLE
+  ================================================ */
+  table {
+    width: 100%;
+    //border-bottom: 1px solid #ddd;
+    min-width: 291px; /* 240px */
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    font-size: 16px;
+    background-color: #fff;
+  }
+
+  tr:nth-child(even) > td,
+  tr:nth-child(even) > th {
+    background-color: #efefef;
+  }
+
+  th,
+  .plan-price {
+    color: #fff;
+  }
+
+  .plan-price {
+    font-size: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    padding: 25px 0;
+  }
+
+  .plan-price span {
+    font-size: 1rem;
+  }
+
+  /* Background colour */
+  .plan-free th,
+  .plan-free .plan-price {
+    background: linear-gradient(-90deg, #009ADB, #00DB9A);
+  }
+
+  .plan-premium th,
+  .plan-premium .plan-price {
+    background: linear-gradient(-90deg, #EE52FF, #009ADB);
+  }
+
+  /*
+  BUTTON
+  ================================================ */
+  .btn {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-decoration: none;
+    background: #6fc173;
+    border-radius: 5px;
+    box-shadow: 0 3px #449f49;
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    padding: 15px;
+    width: 80%;
+    text-align: center;
+    margin: 10px 0;
+
+    @media(max-width: 544px) {
+      width: 100%;
+      font-size: 1em;
+    }
+  }
+
+  .btn:hover {
+    box-shadow: 0 1px #449f49;
+    top: 1px;
+  }
+
+  /* Stripe checkoutボタンを非表示にする。 */
+  .stripe-button-el {
+    display: none;
+  }
+
+
+  /*
+  LARGE DISPLAY
+  ================================================ */
+  @media (min-width: 700px) {
+
+    .flexbox {
+      -webkit-flex-direction: row;
+      flex-direction: row;
+    }
+    .plan-table {
+      width: 100%;
+
+    }
+
+  }
+}
+

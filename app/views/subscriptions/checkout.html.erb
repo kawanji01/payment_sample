@@ -1,0 +1,16 @@
+<div class="container bg-white pt-5 pb-5 my-5">
+  <div class="text-center">
+    <img src="<%= LOADING_GIF %>" alt="loading">
+  </div>
+</div>
+
+
+<script src="https://js.stripe.com/v3"></script>
+
+<script>
+    var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>'); // ()内には公開可能キーを記述
+    stripe.redirectToCheckout({
+        sessionId: '<%= @session.id %>'
+    }).then(function (result) {
+    });
+</script>

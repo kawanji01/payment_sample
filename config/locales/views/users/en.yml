@@ -1,0 +1,5 @@
+en:
+  users:
+    anonymous_user: 'Anonymous user'
+    creating_account_succeeded: 'Your account created! Welcome to Sample!!'
+    my_page: 'MyPage'

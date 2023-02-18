@@ -1,0 +1,18 @@
+<% unit = unit_purchase.unit %>
+<!--
+<#% stripe_payment_intent = unit_purchase.stripe_payment_intent %>
+-->
+<div class="my-3">
+
+  <div class="card">
+    <div class="card-header font-weight-bold">
+      <%= unit.created_at.to_time.strftime("%Y/%m/%d") %>
+    </div>
+    <div class="card-body">
+      <p>料金：<%= unit.amount %>円</p>
+      <!--
+      <#%= stripe_payment_intent %>
+      -->
+    </div>
+  </div>
+</div>

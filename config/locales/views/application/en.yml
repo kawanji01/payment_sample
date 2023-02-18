@@ -1,0 +1,6 @@
+en:
+  application:
+    login_required: 'Please Login to use this feature.'
+    already_logged_in: 'You already logged in.'
+    forbid_not_premium_user: 'Please join premium member for using this feature.'
+    already_premium_user: 'You are already premium member.'

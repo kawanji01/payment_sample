@@ -1,0 +1,22 @@
+
+<% @user = User.new if @user.blank? %>
+<%= form_with model: @user, local: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name, "#{t 'static_pages.name'}", class: "text-left small text-secondary" %>
+  <%= f.text_field :name, class: "form-control mb-4", placeholder: 'ユーザー名を入力してください。' %>
+
+  <%= f.label :email, "#{t 'static_pages.email'}", class: "text-left small text-secondary" %>
+  <%= f.email_field :email, class: "form-control mb-4", placeholder: 'メールアドレスを入力してください。' %>
+
+  <%= f.label :password, "#{t 'static_pages.password'}", class: "text-left small text-secondary" %>
+  <%= f.password_field :password, class: "form-control mb-4", placeholder: 'パスワードを入力してください。' %>
+
+
+  <%= f.submit "#{t 'static_pages.submit_signup'}", class: "btn btn-solid main-loading-show-btn w-100 mt-4" %>
+
+<% end %>
+
+
+<p class="my-5 font-weight-bold"><%= t 'static_pages.do_you_have_an_account?' %> <%= link_to t('static_pages.login'), login_path, style: 'color: #f79c4f;' %></p>
+

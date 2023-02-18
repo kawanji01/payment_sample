@@ -1,0 +1,39 @@
+<div class="my-4 text-center">
+  <%= icon_for f.object %>
+</div>
+<div class="my-4 text-center">
+  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
+  <% if f.object.icon? %>
+    <label class="d-block mt-3">
+      <%= f.check_box :remove_icon %>
+      画像を削除
+    </label>
+  <% end %>
+</div>
+
+<%= f.label :name, "名前", class: 'small' %>
+<%= f.text_field :name, class: "form-control mb-4", placeholder: "ユーザー名を入力してください。" %>
+
+
+<%= f.label :profile, "プロフィール", class: 'small' %>
+<%= f.text_area :profile, class: "form-control mb-4", placeholder: "500文字以内でプロフィールを入力してください。", rows: 4 %>
+
+
+<!--
+<div class="custom-control custom-switch my-3">
+  <#%= f.check_box :notification_deliver, class: 'custom-control-input', id: 'notificationDeliver' %>
+  <label class="custom-control-label" for="notificationDeliver">メールによる通知を受け取る</label>
+</div>
+-->
+
+
+<h3 class="text-center text-success font-weight-bold mt-5 mb-3">認証設定</h3>
+
+<%= f.label :email, "メールアドレス", class: 'small' %>
+<%= f.email_field :email, class: "form-control mb-4", placeholder: "メールアドレスを入力してください。" %>
+
+<%= f.label :password, "新しいパスワード", class: 'small' %>
+<%= f.password_field :password, class: "form-control mb-4", placeholder: "半角英数字６文字以上" %>
+
+<%= f.label :password_confirmation, "パスワード確認", class: 'small' %>
+<%= f.password_field :password_confirmation, class: "form-control mb-4", placeholder: "もう一度パスワードを入力してください。" %>

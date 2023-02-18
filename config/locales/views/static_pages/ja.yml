@@ -1,0 +1,24 @@
+ja:
+  static_pages:
+    home: "ホーム"
+    login: 'ログイン'
+    email: 'メールアドレス'
+    password: 'パスワード'
+    forgot_password: 'パスワードを忘れましたか？'
+    remember_me: 'ログイン情報を記憶する'
+    submit_login: 'ログインする'
+    dont_have_an_account?: "アカウントを持っていませんか？"
+    signup: '新規登録'
+    name: '名前'
+    submit_signup: '登録する'
+    email_login: 'Emailでログイン'
+    email_signup: 'Emailで新規登録'
+    do_you_have_an_account?: 'アカウントを持っていますか？'
+    twitter: 'Twitterで続ける'
+    facebook: 'Facebookで続ける'
+    google: 'Googleで続ける'
+    apple: 'Appleで続ける'
+    hall_of_fame: '殿堂入り'
+    unsubscribed_from_mail_delivery: 'メール配信を停止しました。'
+    invalid_email_address: '無効なリンクです。ログインし、ユーザー設定からメール送信をOFFにしてください。'
+

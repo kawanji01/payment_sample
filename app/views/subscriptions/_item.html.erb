@@ -1,0 +1,20 @@
+<% plan = subscription.plan %>
+<% stripe_subscription = subscription.stripe_subscription %>
+<div class="my-3">
+
+  <div class="card">
+    <div class="card-header font-weight-bold">
+      <%= plan.nickname %>
+    </div>
+    <div class="card-body">
+      <p>料金：<%= plan.amount %>円/月</p>
+
+      <%= render "subscriptions/contract_status", stripe_subscription: stripe_subscription %>
+      <% if request.path == edit_subscription_path(subscription) %>
+        <%= render 'subscriptions/cancel_btn', subscription: subscription, stripe_subscription: stripe_subscription %>
+      <% else %>
+        <a href="<%= edit_subscription_path(subscription) %>" class="btn btn btn-success w-100 text-white">プラン設定</a>
+      <% end %>
+    </div>
+  </div>
+</div>

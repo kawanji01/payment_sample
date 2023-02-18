@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "./variables";
+@import "./modals";
+@import "./custom";
+@import "./buttons";
+@import "./loading";
+@import "./sidebar";
+@import "./card";
+@import "./landing_page";
+
+
+
+body {
+  background-color: $bg-color;
+  min-height: 100vh;
+}
+
+p {
+  line-height: 1.8em;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+}
+
+.header {
+  background-color: $brand-black;
+  height: 60px;
+  /*
+  img {
+    height: 32px;
+  }
+   */
+  .logo {
+    font-size: 18px;
+    letter-spacing: 0;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+footer {
+  min-height: 360px;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 64px;
+  background-color: $brand-black;
+  color: white;
+
+  .wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 24px;
+  }
+
+  a {
+    font-size: 16px;
+    color: white;
+    &:hover {
+      color: $bright-green;
+      text-decoration: none;
+    }
+  }
+}
+
+.main-column {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+

@@ -1,0 +1,24 @@
+<footer class="footer">
+
+  <div class="container pt-4">
+    <div class="row">
+      <div class="col-xl-6 pl-3">
+        <div class="my-3"><%= link_to 'ホーム', root_path %></div>
+        <div class="my-3"><%= link_to  'Twitter', "https://twitter.com/Sample", target: '_blank', rel: 'noopener' %></div>
+      </div>
+
+
+
+      <div class="col-xl-6 pl-3">
+        <div class="my-3"><%= link_to t('layouts.company'), "https://www.diqt.net/#{@locale}/about",  target: '_blank', rel: 'noopener' %></div>
+        <div class="my-3"><%= link_to  t('layouts.contact'), "https://www.diqt.net/#{@locale}/contact", target: '_blank', rel: 'noopener' %></div>
+        <div class="my-3"><%= link_to t('layouts.commercial_transaction_act'), "https://www.diqt.net/#{@locale}/legal" %></div>
+        <div class="my-3"><%= link_to t('layouts.term_of_service'), "https://www.diqt.net/#{@locale}/terms_of_service" %></div>
+        <div class="my-3"><%= link_to t('layouts.privacy_policy'), "https://www.diqt.net/#{@locale}/privacy_policy" %></div>
+      </div>
+
+
+    </div>
+
+  </div>
+</footer>

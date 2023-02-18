@@ -1,0 +1,18 @@
+
+<% if stripe_subscription.present? %>
+  <% start_time = Time.at(stripe_subscription['current_period_start']).strftime("%Y/%m/%d") %>
+  <% end_time = Time.at(stripe_subscription['current_period_end']).strftime("%Y/%m/%d") %>
+  <% status = stripe_subscription['status'] %>
+
+  <p class="small text-secondary">
+    開始日：<%= start_time %>
+    <br>
+    <% if status == 'canceled' %>
+      終了日：
+    <% else %>
+      次回請求日：
+    <% end %>
+    <%= end_time %>
+    <br>
+  </p>
+<% end %>

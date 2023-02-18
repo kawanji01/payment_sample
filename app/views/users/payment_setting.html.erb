@@ -1,0 +1,47 @@
+<% set_meta_tags noindex: true %>
+<div class="d-block mt-4"></div>
+<%= render 'layouts/breadcrumb', items_hash: @breadcrumb_hash %>
+
+<div class="container bg-white pt-5 pb-5 my-5">
+  <div class="row justify-content-md-center">
+
+    <div class="col-md-6">
+
+      <h1 class="text-center font-weight-bold">ご加入プラン</h1>
+
+      <% if @subscriptions.blank? %>
+
+        <h3 class="text-center my-5">未加入です。</h3>
+
+      <% else %>
+        <%= render partial: 'subscriptions/item', collection: @subscriptions, as: 'subscription' %>
+      <% end %>
+
+
+      <div class="d-block py-3"></div>
+
+      <h1 class="text-center font-weight-bold mt-5">お支払方法</h1>
+
+      <% if @customer.present? %>
+        <%= render 'customers/item', customer: @customer, stripe_card: @stripe_card %>
+      <% else %>
+        <%= render 'customers/stripe_element_form', customer: Customer.new %>
+      <% end %>
+
+
+
+      <!--
+      <#% if @customer.present? %>
+        <#%= link_to invoices_user_path(@user) do %>
+          <div class="btn btn btn-border-gray my-4">領収書 / 請求書をみる</div>
+        <#% end %>
+      <#% end %>
+      -->
+
+
+    </div>
+
+
+  </div>
+
+</div>

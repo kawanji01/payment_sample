@@ -1,0 +1,23 @@
+en:
+  static_pages:
+    home: "Home"
+    login: 'Login'
+    email: 'Email'
+    password: 'Password'
+    forgot_password: 'Forgot your password?'
+    remember_me: 'Remember me'
+    submit_login: 'Log In'
+    dont_have_an_account?: "Don't have an account?"
+    signup: 'Sign up'
+    name: 'Name'
+    submit_signup: 'Sign Up'
+    email_login: 'Login with email'
+    email_signup: 'Signup with email'
+    do_you_have_an_account?: 'Do you have an account?'
+    twitter: 'Continue with Twitter'
+    facebook: 'Continue with Facebook'
+    google: 'Continue with Google'
+    apple: 'Continue with Apple'
+    hall_of_fame: 'Hall of fame'
+    unsubscribed_from_mail_delivery: 'Unsubscribed from mail delivery'
+    invalid_email_address: 'Link is invalid. Please login and access to Account setting to turn off sending email.'

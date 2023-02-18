@@ -1,0 +1,42 @@
+<% set_meta_tags title: "#{t('static_pages.login')}" %>
+
+
+
+<div class="container bg-white pt-5 pb-5 my-5">
+  <div class="row">
+
+    <div class="col-md-6 offset-md-3">
+
+      <h1 class="text-center font-weight-bold"><%= title t('static_pages.login') %></h1>
+
+
+
+      <%= form_with scope: :session, url: login_path, local: true, id: 'login-form-sessions-new' do |f| %>
+
+        <%= f.label :email, "#{t 'static_pages.email'}", class: "text-left small text-secondary" %>
+        <%= f.email_field :email, class: "form-control mb-3", id: 'email-sessions-new' %>
+
+        <%= f.label :password, "#{t 'static_pages.password'}", class: "text-left small text-secondary" %>
+        <%= f.password_field :password, class: "form-control", id: 'password-sessions-new' %>
+
+
+        <div class="form-group form-check text-left mt-2 d-flex align-items-start">
+          <%= f.check_box :remember_me, class: 'form-check-input mt-1', id: 'remember-me-sessions-new' %>
+          <label class="form-check-label small" for="remember-me-sessions-new"><%= t 'static_pages.remember_me' %></label>
+        </div>
+
+
+        <%= f.submit "#{t 'static_pages.submit_login'}", class: "btn btn-solid main-loading-show-btn w-100" %>
+
+
+      <% end %>
+      <%= link_to "#{t 'static_pages.forgot_password'}", new_password_reset_path, class: "mt-3 d-block small text-success" %>
+
+
+      <p class="my-5 font-weight-bold"><%= t 'static_pages.dont_have_an_account?' %> <%= link_to t('static_pages.signup'), signup_path, style: 'color: #f79c4f;' %></p>
+
+    </div>
+  </div>
+
+
+</div>

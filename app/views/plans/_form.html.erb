@@ -1,0 +1,22 @@
+<%= form_with model: plan, local: true do |f| %>
+
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :stripe_price_id, "stripe_price_id", class: 'item-label my-3' %>
+  <%= f.text_field :stripe_price_id, class: "form-control", placeholder: 'price_xxxxx' %>
+
+  <%= f.label :nickname, "nickname", class: 'item-label my-3' %>
+  <%= f.text_field :nickname, class: "form-control", placeholder: 'Plan Name' %>
+
+  <%= f.label :amount, "amount", class: 'item-label my-3' %>
+  <%= f.number_field :amount, class: "form-control", placeholder: 'Amount' %>
+
+  <%= f.label :trial_period_days, "trial_period_days", class: 'item-label my-3' %>
+  <%= f.number_field :trial_period_days, class: "form-control", placeholder: 'trial_period_days' %>
+
+  <%= f.label :reference_number, "reference_number", class: 'item-label my-3' %>
+  <%= f.number_field :reference_number, class: "form-control" %>
+
+  <%= f.submit "OK", class: "btn btn-solid w-100 my-5 main-loading-show-btn" %>
+
+<% end %>

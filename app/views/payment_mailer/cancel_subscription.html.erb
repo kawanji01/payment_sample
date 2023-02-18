@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<%= render 'user_mailer/head' %>
+
+<body style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #e9ecef; width: 100%; height: 100%; padding: 0; margin: 0;">
+
+<!-- start preheader -->
+<%= render 'user_mailer/pre_header', text: "これまでご利用いただき、誠にありがとうございました。" %>
+<!-- end preheader -->
+
+<!-- start body -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-rspace: 0pt; mso-table-lspace: 0pt; border-collapse: collapse;">
+
+  <!-- start logo -->
+  <%= render 'user_mailer/header' %>
+  <!-- end logo -->
+
+  <!-- start hero -->
+  <%= render 'user_mailer/heading', heading: 'ご解約を完了いたしました。' %>
+  <!-- end hero -->
+
+  <!-- start copy block -->
+  <tr>
+    <td align="center" bgcolor="#f6f7f9" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-rspace: 0pt; mso-table-lspace: 0pt;">
+      <!--[if (gte mso 9)|(IE)]>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+        <tr>
+          <td align="center" valign="top" width="600">
+      <![endif]-->
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-rspace: 0pt; mso-table-lspace: 0pt; max-width: 600px; border-collapse: collapse;">
+
+        <!-- start copy -->
+        <% copy = "#{@user.name}様。\n
+        #{@plan.nickname}のご解約は、問題なく完了いたしました。\n
+        ここまでご利用いただき、誠にありがとうございました！\n
+        有料機能は、#{@subscription.period_end_day}までご利用いただけます。\n
+        機会がございましたら、またぜひSampleをご利用くださいませ！！" %>
+        <%= render 'user_mailer/copy', text: copy %>
+        <!-- end copy -->
+
+
+
+
+      </table>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      </tr>
+      </table>
+      <![endif]-->
+    </td>
+  </tr>
+  <!-- end copy block -->
+
+  <!-- start footer -->
+  <%= render 'user_mailer/footer', user: @user %>
+  <!-- end footer -->
+
+</table>
+<!-- end body -->
+
+</body>
+</html>
+

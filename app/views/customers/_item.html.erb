@@ -1,0 +1,27 @@
+<% if customer.present? %>
+  <div class="card border-success my-3 py-3 w-100">
+    <div class="card-body text-center">
+      <% if stripe_card.present? %>
+        <h5 class="card-title">**** **** **** <%= stripe_card&.last4 %></h5>
+        <p class="card-text text-secondary">有効期限：<%= "#{stripe_card&.exp_year}/#{stripe_card&.exp_month}" %></p>
+        <p class="card-text text-secondary"><%= stripe_card&.brand %></p>
+        <p class="card-text text-secondary"><%= stripe_card&.country %></p>
+      <% else %>
+        <h5 class="card-title">Invalid Card ID</h5>
+      <% end %>
+
+      <%= link_to edit_customer_path(customer), data: { "turbolinks" => false }, class: 'btn btn btn-border-gray w-100 my-2' do %>
+        支払い方法を更新する
+      <% end %>
+
+      <!--
+      <#%= link_to delete_confirmation_customer_path(customer), class: 'btn btn btn-border-gray w-100 my-2' do %>
+        　支払い方法を消去する　
+      <#% end %>
+      -->
+
+    </div>
+
+  </div>
+
+<% end %>

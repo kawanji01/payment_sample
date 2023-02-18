@@ -1,0 +1,29 @@
+<aside class="col-md-4">
+
+  <section class="mt-3 mb-5">
+    <div class="text-center">
+      <%= icon_for @user %>
+    </div>
+    <h4 class="text-center font-weight-bold mt-3">
+      <%= title @user.name %>
+    </h4>
+    <div class="my-3"><%= simple_format @user.profile %></div>
+  </section>
+
+  <% if @user == current_user || current_user&.admin? %>
+
+    <%= link_to edit_user_path(@user), class: 'btn btn-solid mt-3 mb-4 d-block' do %>
+      アカウント設定
+    <% end %>
+    <%= link_to payment_setting_user_path(@user), class: 'btn btn-solid mt-3 mb-4 d-block' do %>
+      お支払い設定
+    <% end %>
+    <%= link_to logout_path, method: :delete, class: 'btn btn-solid mt-3 mb-4 d-block main-loading-show-btn' do %>
+      ログアウト
+    <% end %>
+  <% end %>
+
+</aside>
+
+
+

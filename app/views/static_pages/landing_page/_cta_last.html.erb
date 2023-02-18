@@ -1,0 +1,38 @@
+<div class="px-3">
+  <h1 class="top-heading pt-5 text-white text-center font-weight-bold" id="catalog-request">資料請求はこちらから</h1>
+
+  <p class="text-white">ご興味をお持ちの方、入塾ご検討中、資料をお求めの方は以下のフォームにご回答ください。数日以内に担当の者からご連絡差し上げます。</p>
+
+  <div class="my-5">
+
+    <div class="row justify-content-md-center">
+
+      <div class="col-md-6">
+        <%= form_with url: catalog_request_path, method: :get, local: true do |f| %>
+          <%= f.label :name, "#{t 'static_pages.name'}", class: "text-left small text-white" %>
+          <%= f.text_field :name, class: "form-control mb-4", placeholder: 'お名前をご入力ください。', required: true %>
+
+          <%= f.label :email, "#{t 'static_pages.email'}", class: "text-left small text-white" %>
+          <%= f.email_field :email, class: "form-control mb-4", placeholder: 'メールアドレスをご入力ください。', required: true %>
+
+          <%= f.label :phone, "電話番号", class: "text-left small text-white" %>
+          <%= f.text_field :phone, class: "form-control mb-4", placeholder: '電話番号をご入力ください。', required: true %>
+
+          <%= f.label :inquiry, "お問い合わせ内容", class: "text-left small text-white" %>
+          <%= f.select :inquiry, [['資料請求/お問い合わせ', '資料請求/お問い合わせ'], ['入塾お申し込み', '入塾お申し込み'], ['体験授業のお申し込み', '体験授業のお申し込み'],
+                                  ['無料相談ご希望', '無料相談ご希望'],], {}, { class: 'form-control mb-4' } %>
+
+          <%= f.label :message, "メッセージ", class: "text-left small text-white" %>
+          <%= f.text_area :message, class: "form-control mb-4", placeholder: '任意', rows: 4 %>
+
+
+          <%= f.submit "申し込む", class: "btn btn-lg btn-light-green w-100 rounded-pill modal-show-signup font-weight-bold mt-4", data: { disable_with: '送信中...' } %>
+
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</div>
